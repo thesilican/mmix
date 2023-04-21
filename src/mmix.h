@@ -50,12 +50,17 @@ void memory_destroy(Memory *memory);
 
 struct Computer
 {
-    uint64_t greg[256];
-    uint64_t sreg[32];
+    uint64_t *reg;
     Memory memory;
 };
 
 Computer computer_new();
+uint64_t *computer_greg(Computer *computer, uint8_t reg);
+uint64_t *computer_sreg(Computer *computer, uint8_t reg);
+uint64_t computer_get_greg(Computer *computer, uint8_t reg);
+uint64_t computer_get_sreg(Computer *computer, uint8_t reg);
+void computer_set_greg(Computer *computer, uint8_t reg, uint64_t value);
+void computer_set_sreg(Computer *computer, uint8_t reg, uint64_t value);
 void computer_destroy(Computer *computer);
 
 struct Op

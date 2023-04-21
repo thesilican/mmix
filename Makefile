@@ -13,21 +13,21 @@ CFLAGS := -MMD -MP -Wall
 
 .PHONY: clean test
 
-all: $(BIN_DIR)/$(EXEC_NAME)
+build: $(BIN_DIR)/$(EXEC_NAME)
+
+asm: $(ASMS)
 
 clean:
-	rm $(OBJ_DIR)/* $(BIN_DIR)/*
+	rm -rf $(OBJ_DIR)/* $(BIN_DIR)/*
 
 run: $(BIN_DIR)/$(EXEC_NAME)
 	$(BIN_DIR)/$(EXEC_NAME)
 
-asm: $(ASMS)
-
 $(BIN_DIR):
-	mkdir $(BIN_DIR)
+	mkdir -p $(BIN_DIR)
 
 $(OBJ_DIR):
-	mkdir $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
