@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
+#include <time.h>
 
 typedef struct Computer Computer;
 typedef struct Memory Memory;
@@ -70,6 +72,9 @@ struct Op
     uint8_t y;
     uint8_t z;
 };
+
+// Parse op from tetra
+Op op_new(uint32_t tetra);
 
 // Apply op to a computer state
 void op_apply(Computer *computer, Op op);
@@ -181,5 +186,7 @@ void op_sreg_synccd(Computer *computer, Op op);
 void op_sreg_ldvts(Computer *computer, Op op);
 // SWYM
 void op_sreg_swym(Computer *computer, Op op);
+
+void tests_run();
 
 #endif

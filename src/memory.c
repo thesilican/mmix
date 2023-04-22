@@ -165,17 +165,41 @@ uint8_t memory_get_byte(Memory *memory, uint64_t address)
 
 uint16_t memory_get_wyde(Memory *memory, uint64_t address)
 {
-    // TODO
+    address &= ~0b1;
+    assert(address % 2 == 0);
+    uint16_t value = 0;
+    for (int i = 0; i < 2; i++)
+    {
+        uint16_t byte = *memory_get(memory, address + i);
+        value |= byte << ((1 - i) * 8);
+    }
+    return value;
 }
 
 uint32_t memory_get_tetra(Memory *memory, uint64_t address)
 {
-    // TODO
+    address &= ~0b11;
+    assert(address % 4 == 0);
+    uint32_t value = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        uint32_t byte = *memory_get(memory, address + i);
+        value |= byte << ((3 - i) * 8);
+    }
+    return value;
 }
 
 uint64_t memory_get_octa(Memory *memory, uint64_t address)
 {
-    // TODO
+    address &= ~0b111;
+    assert(address % 8 == 0);
+    uint64_t value = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        uint64_t byte = *memory_get(memory, address + i);
+        value |= byte << ((7 - i) * 8);
+    }
+    return value;
 }
 
 void memory_set_byte(Memory *memory, uint64_t address, uint8_t value)
@@ -185,15 +209,30 @@ void memory_set_byte(Memory *memory, uint64_t address, uint8_t value)
 
 void memory_set_wyde(Memory *memory, uint64_t address, uint16_t value)
 {
-    // TODO
+    address &= ~0b1;
+    assert(address % 2 == 0);
+    for (int i = 0; i < 2; i++)
+    {
+        *memory_get(memory, address + i) = value >> ((1 - i) * 8);
+    }
 }
 
 void memory_set_tetra(Memory *memory, uint64_t address, uint32_t value)
 {
-    // TODO
+    address &= ~0b11;
+    assert(address % 4 == 0);
+    for (int i = 0; i < 4; i++)
+    {
+        *memory_get(memory, address + i) = value >> ((3 - i) * 8);
+    }
 }
 
 void memory_set_octa(Memory *memory, uint64_t address, uint64_t value)
 {
-    // TODO
+    address &= ~0b111;
+    assert(address % 8 == 0);
+    for (int i = 0; i < 8; i++)
+    {
+        *memory_get(memory, address + i) = value >> ((7 - i) * 8);
+    }
 }

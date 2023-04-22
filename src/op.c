@@ -1,8 +1,18 @@
 #include "mmix.h"
 
+Op op_new(uint32_t tetra)
+{
+    Op op;
+    op.op = tetra >> 24;
+    op.x = tetra >> 16;
+    op.y = tetra >> 8;
+    op.z = tetra;
+    return op;
+}
+
 void op_apply(Computer *computer, Op op)
 {
-    //
+    // TODO
 }
 
 // Integer arithmetic
