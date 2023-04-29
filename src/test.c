@@ -1,5 +1,6 @@
 #include "mmix.h"
 
+// Test direct memory access function
 static void test_memory() {
     Memory mem = memory_new();
     *memory_get(&mem, 0x00) = 0xab;
@@ -23,6 +24,7 @@ static void test_memory() {
     memory_destroy(&mem);
 }
 
+// Test memory byte/wyde/tetra/octa access functions
 static void test_memory_fetch() {
     Memory mem = memory_new();
     memory_set_octa(&mem, 1000, 0x0123456789abcdef);
@@ -53,10 +55,42 @@ static void test_memory_fetch() {
     memory_destroy(&mem);
 }
 
+// Test computer registers
+static void test_computer_reg() {
+    Computer computer = computer_new();
+    *computer_greg(&computer, 0x00) = 0x0123456789abcdef;
+    *computer_greg(&computer, 0x12) = 0xeeee;
+    *computer_greg(&computer, 0xff) = 1234;
+    assert(computer_get_greg(&computer, 0x00) == 0x0123456789abcdef);
+    assert(computer_get_greg(&computer, 0x12) == 0xeeee);
+    assert(computer_get_greg(&computer, 0xff) == 1234);
+    computer_set_greg(&computer, 0x00, 1);
+    computer_set_greg(&computer, 0x12, 2);
+    computer_set_greg(&computer, 0xff, 3);
+    assert(computer_get_greg(&computer, 0x00) == 1);
+    assert(computer_get_greg(&computer, 0x12) == 2);
+    assert(computer_get_greg(&computer, 0xff) == 3);
+    *computer_sreg(&computer, 0) = 0x0123456789abcdef;
+    *computer_sreg(&computer, 1) = 0xeeee;
+    *computer_sreg(&computer, 31) = 1234;
+    assert(computer_get_sreg(&computer, 0) == 0x0123456789abcdef);
+    assert(computer_get_sreg(&computer, 1) == 0xeeee);
+    assert(computer_get_sreg(&computer, 31) == 1234);
+    computer_set_sreg(&computer, 0, 1);
+    computer_set_sreg(&computer, 1, 2);
+    computer_set_sreg(&computer, 31, 3);
+    assert(computer_get_sreg(&computer, 0) == 1);
+    assert(computer_get_sreg(&computer, 1) == 2);
+    assert(computer_get_sreg(&computer, 31) == 3);
+    computer_destroy(&computer);
+}
+
 void tests_run() {
     clock_t start = clock();
     test_memory();
     test_memory_fetch();
+    test_computer_reg();
+    test_ops();
     clock_t end = clock();
     double ms = (double)(end - start) * 1000 / (double)CLOCKS_PER_SEC;
     printf("Completed all tests in %.2fms\n", ms);

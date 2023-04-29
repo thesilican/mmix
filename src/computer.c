@@ -27,7 +27,6 @@ void computer_set_greg(Computer *computer, uint8_t reg, uint64_t value) {
 }
 
 uint64_t *computer_sreg(Computer *computer, uint8_t reg) {
-
     if (reg >= 32) {
         fprintf(stderr, "accessed sreg out of bounds: %d", reg);
         exit(1);

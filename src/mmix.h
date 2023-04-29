@@ -73,6 +73,7 @@ Op op_decode(uint32_t tetra);
 uint32_t op_encode(Op op);
 void op_exec(Computer *computer, Op op);
 
+void test_ops();
 void tests_run();
 
 #endif
