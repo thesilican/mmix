@@ -1,10 +1,10 @@
 #ifndef MMIX_H
 #define MMIX_H
-#include <stdio.h>
+#include <assert.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
 #include <time.h>
 
 typedef struct Computer Computer;
@@ -14,8 +14,7 @@ typedef struct Op Op;
 
 #define MEMORY_PAGE_MAX_NODES 65536
 
-struct MemoryPageNode
-{
+struct MemoryPageNode {
     // For leaf node, children[1] contains page index,
     // children[0] is set to 1 if page is allocated otherwise 0
     // For other nodes, children[i] contains index of next node
@@ -26,10 +25,9 @@ struct MemoryPageNode
 
 // There is 2^64 bytes of addressable memory
 // Memory is stored in pages that are 2^16 bytes each, a tree of
-// nodes maps the remaining 2^48 address space to its corresponding page. Each node
-// narrows the search space by a factor of 2^8
-struct Memory
-{
+// nodes maps the remaining 2^48 address space to its corresponding page. Each
+// node narrows the search space by a factor of 2^8
+struct Memory {
     MemoryPageNode *nodes;
     size_t node_count;
     uint8_t *pages;
@@ -50,8 +48,7 @@ void memory_set_octa(Memory *memory, uint64_t address, uint64_t value);
 void memory_debug_nodes(Memory *memory);
 void memory_destroy(Memory *memory);
 
-struct Computer
-{
+struct Computer {
     uint64_t *reg;
     Memory memory;
 };
@@ -65,8 +62,7 @@ void computer_set_greg(Computer *computer, uint8_t reg, uint64_t value);
 void computer_set_sreg(Computer *computer, uint8_t reg, uint64_t value);
 void computer_destroy(Computer *computer);
 
-struct Op
-{
+struct Op {
     uint8_t op;
     uint8_t x;
     uint8_t y;

@@ -1,7 +1,6 @@
 #include "mmix.h"
 
-static void test_memory()
-{
+static void test_memory() {
     Memory mem = memory_new();
     *memory_get(&mem, 0x00) = 0xab;
     *memory_get(&mem, 0x01) = 0xcd;
@@ -24,8 +23,7 @@ static void test_memory()
     memory_destroy(&mem);
 }
 
-static void test_memory_fetch()
-{
+static void test_memory_fetch() {
     Memory mem = memory_new();
     memory_set_octa(&mem, 1000, 0x0123456789abcdef);
     assert(*memory_get(&mem, 1000) == 0x01);
@@ -55,8 +53,7 @@ static void test_memory_fetch()
     memory_destroy(&mem);
 }
 
-void tests_run()
-{
+void tests_run() {
     clock_t start = clock();
     test_memory();
     test_memory_fetch();

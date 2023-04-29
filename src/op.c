@@ -1,7 +1,7 @@
 #include "mmix.h"
 
-static void op_not_implemented(Op op)
-{
+// Place holder function for an op code that hasn't been implemented
+static void op_not_implemented(Op op) {
     uint32_t code = op_encode(op);
     fprintf(stderr, "op not yet implemented: 0x%08x\n", code);
     exit(1);
@@ -9,242 +9,199 @@ static void op_not_implemented(Op op)
 
 // Integer arithmetic
 // ADD, SUB, MUL, DIV
-static void op_int_sarith(Computer *computer, Op op)
-{
+static void op_int_sarith(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // ADDU, SUBU, MULU, DIVU
-static void op_int_uarith(Computer *computer, Op op)
-{
+static void op_int_uarith(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // NEG, NEGU
-static void op_int_neg(Computer *computer, Op op)
-{
+static void op_int_neg(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // CMP, CMPU
-static void op_int_cmp(Computer *computer, Op op)
-{
+static void op_int_cmp(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Floating point arithmetic
 // FLOT, FLOTU, FIX, FIXU
-static void op_float_conv(Computer *computer, Op op)
-{
+static void op_float_conv(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // FADD, FSUB, FMUL, FDIV, FREM, FSQRT, FINT
-static void op_float_arith(Computer *computer, Op op)
-{
+static void op_float_arith(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // FCMP, FEQL, FUN, FCMPE, FEQLE, FUNE
-static void op_float_cmp(Computer *computer, Op op)
-{
+static void op_float_cmp(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SFLOT, SFLOTU
-static void op_float_short(Computer *computer, Op op)
-{
+static void op_float_short(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Bits and Bytes
 // AND, OR, XOR, ANDN, ORN, NAND, NOR, NXOR
-static void op_bits_logic(Computer *computer, Op op)
-{
+static void op_bits_logic(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SL, SLU, SR, SRU
-static void op_bits_shift(Computer *computer, Op op)
-{
+static void op_bits_shift(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // MOR, MXOR
-static void op_bits_mor(Computer *computer, Op op)
-{
+static void op_bits_mor(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // BDIF, WDIF, TDIF, ODIF
-static void op_bits_bdif(Computer *computer, Op op)
-{
+static void op_bits_bdif(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // ORH, ORMH, ORML, ORL, ANDNH, ANDNMH, ANDNML, ANDNL
-static void op_bits_orh(Computer *computer, Op op)
-{
+static void op_bits_orh(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SADD
-static void op_bits_sadd(Computer *computer, Op op)
-{
+static void op_bits_sadd(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // MUX
-static void op_bits_mux(Computer *computer, Op op)
-{
+static void op_bits_mux(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Address Computations
 // GETA
-static void op_addr_geta(Computer *computer, Op op)
-{
+static void op_addr_geta(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // 2ADDU, 4ADDU, 8ADDU, 16ADDU
-static void op_addr_2addu(Computer *computer, Op op)
-{
+static void op_addr_2addu(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SETH, SETMH, SETML, SETL
-static void op_addr_set(Computer *computer, Op op)
-{
+static void op_addr_set(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // INCH, INCMH, INCML, INCL
-static void op_addr_inc(Computer *computer, Op op)
-{
+static void op_addr_inc(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Load and Store
 // LDB, LDW, LDT, LDO
-static void op_ls_ld(Computer *computer, Op op)
-{
+static void op_ls_ld(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // STB, STW, STT, STO
-static void op_ls_st(Computer *computer, Op op)
-{
+static void op_ls_st(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // LDBU, LDWU, LDTU, LDOU
-static void op_ls_ldu(Computer *computer, Op op)
-{
+static void op_ls_ldu(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // STBU, STWU, STTU, STOU
-static void op_ls_stu(Computer *computer, Op op)
-{
+static void op_ls_stu(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // STCO
-static void op_ls_stco(Computer *computer, Op op)
-{
+static void op_ls_stco(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // LDHT, STHT
-static void op_ls_ht(Computer *computer, Op op)
-{
+static void op_ls_ht(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // LDSF, STSF
-static void op_ls_sf(Computer *computer, Op op)
-{
+static void op_ls_sf(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Jumps and Branches
 // JMP
-static void op_jb_jmp(Computer *computer, Op op)
-{
+static void op_jb_jmp(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // GO
-static void op_jb_go(Computer *computer, Op op)
-{
+static void op_jb_go(Computer *computer, Op op) {
     op_not_implemented(op);
 }
-// BZ, PBZ, BNZ, PBNZ, BN, PBN, BNN, PBNN, BP, BPB, BNP, PBNP, BOD, PBOD, BEV, PBEV
-static void op_jb_branch(Computer *computer, Op op)
-{
+// BZ, PBZ, BNZ, PBNZ, BN, PBN, BNN, PBNN, BP, BPB, BNP, PBNP, BOD, PBOD, BEV,
+// PBEV
+static void op_jb_branch(Computer *computer, Op op) {
     op_not_implemented(op);
 }
-// CSZ, ZSZ, CSNZ, ZSNZ, CSN, ZSN, CSNN, ZSNN, CSP, ZSP, CSNP, ZSNP, CSOD, ZSOD, CSEV, ZSEV
-static void op_jb_cset(Computer *computer, Op op)
-{
+// CSZ, ZSZ, CSNZ, ZSNZ, CSN, ZSN, CSNN, ZSNN, CSP, ZSP, CSNP, ZSNP, CSOD, ZSOD,
+// CSEV, ZSEV
+static void op_jb_cset(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Subroutines and Processes
 // PUSHJ, PUSHGO
-static void op_subp_push(Computer *computer, Op op)
-{
+static void op_subp_push(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // POP
-static void op_subp_pop(Computer *computer, Op op)
-{
+static void op_subp_pop(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SAVE, UNSAVE
-static void op_subp_save(Computer *computer, Op op)
-{
+static void op_subp_save(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // CSWAP
-static void op_subp_cswap(Computer *computer, Op op)
-{
+static void op_subp_cswap(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 
 // Special Registers and System Programming
 // PUT, GET
-static void op_sreg_put(Computer *computer, Op op)
-{
+static void op_sreg_put(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // TRIP
-static void op_sreg_trip(Computer *computer, Op op)
-{
+static void op_sreg_trip(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // TRAP
-static void op_sreg_trap(Computer *computer, Op op)
-{
+static void op_sreg_trap(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // RESUME
-static void op_sreg_resume(Computer *computer, Op op)
-{
+static void op_sreg_resume(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // LDUNC, STUNC
-static void op_sreg_unc(Computer *computer, Op op)
-{
+static void op_sreg_unc(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // PRELD, PREST, PREGO
-static void op_sreg_pre(Computer *computer, Op op)
-{
+static void op_sreg_pre(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SYNC
-static void op_sreg_sync(Computer *computer, Op op)
-{
+static void op_sreg_sync(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SYNCD
-static void op_sreg_syncd(Computer *computer, Op op)
-{
+static void op_sreg_syncd(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SYNCID
-static void op_sreg_syncid(Computer *computer, Op op)
-{
+static void op_sreg_syncid(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // LDVTS
-static void op_sreg_ldvts(Computer *computer, Op op)
-{
+static void op_sreg_ldvts(Computer *computer, Op op) {
     op_not_implemented(op);
 }
 // SWYM
-static void op_sreg_swym(Computer *computer, Op op)
-{
+static void op_sreg_swym(Computer *computer, Op op) {
     // SWYM is a no-op
 }
 
@@ -508,8 +465,7 @@ static OpHandler *OP_TABLE[256] = {
     op_sreg_trip,   // 0xff TRIP
 };
 
-Op op_decode(uint32_t tetra)
-{
+Op op_decode(uint32_t tetra) {
     Op op;
     op.op = tetra >> 24;
     op.x = tetra >> 16;
@@ -518,8 +474,7 @@ Op op_decode(uint32_t tetra)
     return op;
 }
 
-uint32_t op_encode(Op op)
-{
+uint32_t op_encode(Op op) {
     uint32_t value = 0;
     value |= (uint32_t)op.op << 24;
     value |= (uint32_t)op.x << 16;
@@ -528,8 +483,7 @@ uint32_t op_encode(Op op)
     return value;
 }
 
-void op_exec(Computer *computer, Op op)
-{
+void op_exec(Computer *computer, Op op) {
     OpHandler *op_handler = OP_TABLE[op.op];
     op_handler(computer, op);
 }
